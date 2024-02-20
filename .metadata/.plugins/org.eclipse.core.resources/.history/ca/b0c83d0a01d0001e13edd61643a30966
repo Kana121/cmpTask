@@ -1,0 +1,27 @@
+package com.pkg.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pkg.model.UserDtls;
+import com.pkg.repository.UserReposistory;
+import com.pkg.service.UserService;
+@Service
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	UserReposistory reposistory;
+
+	@Override
+	public String signUp(UserDtls user) {
+		UserDtls usr=reposistory.findByEmail(user.getEmail()).get();
+		if(usr!=null) {
+			return "user account already exist ...?";
+		}
+		else {
+			reposistory.save(user);
+			return "User added successfully....";
+		}
+	}
+	
+}

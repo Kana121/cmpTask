@@ -1,0 +1,5 @@
+package com.pkg.repository;
+
+public interface UserReposistory {
+
+}
