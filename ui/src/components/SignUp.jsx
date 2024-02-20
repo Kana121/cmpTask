@@ -17,10 +17,10 @@ const SignUp = () => {
         password,
       });
       setResponseMessage(response.data.message);
-      setError(''); // Reset error state if successful
+      setError(''); 
     } catch (error) {
       setError(error.response.data.message);
-      setResponseMessage(''); // Clear response message if there's an error
+      setResponseMessage(''); 
     }
   };
 
